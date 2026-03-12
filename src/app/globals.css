@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  :root {
+    --gold: #c9a962;
+    --gold-light: #d4b978;
+    --gold-dark: #a68b4b;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-near-black text-off-white antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-gold/30 text-off-white;
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-near-black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/40 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold/60;
+  }
+  
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Premium Button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-3
+           border border-gold/60 text-gold font-medium tracking-wider
+           uppercase text-sm transition-all duration-300 ease-out
+           hover:bg-gold/10 hover:border-gold hover:shadow-[0_0_20px_rgba(201,169,98,0.2)]
+           focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2
+           focus-visible:ring-offset-near-black;
+  }
+  
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-8 py-3
+           border border-off-white/30 text-off-white font-medium tracking-wider
+           uppercase text-sm transition-all duration-300 ease-out
+           hover:bg-off-white/5 hover:border-off-white/60
+           focus-visible:ring-2 focus-visible:ring-off-white focus-visible:ring-offset-2
+           focus-visible:ring-offset-near-black;
+  }
+  
+  .btn-solid {
+    @apply relative inline-flex items-center justify-center px-8 py-3
+           bg-gold border border-gold text-near-black font-medium tracking-wider
+           uppercase text-sm transition-all duration-300 ease-out
+           hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,98,0.4)]
+           focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2
+           focus-visible:ring-offset-near-black;
+  }
+  
+  /* Card */
+  .card {
+    @apply relative p-8 border border-white/10 bg-dark-gray/50
+           transition-all duration-300 ease-out
+           hover:border-gold/30 hover:bg-dark-gray/80;
+  }
+  
+  /* Section Number */
+  .section-number {
+    @apply text-gold/50 font-display text-7xl md:text-8xl font-light tracking-wider
+           absolute -left-4 top-0 opacity-30;
+  }
+  
+  /* Form Input */
+  .form-input {
+    @apply w-full bg-transparent border border-white/20 px-4 py-3
+           text-off-white placeholder:text-muted
+           transition-all duration-300 ease-out
+           focus:border-gold/60 focus:outline-none focus:ring-1 focus:ring-gold/30;
+  }
+  
+  .form-label {
+    @apply block text-sm text-muted mb-2 uppercase tracking-wider;
+  }
+  
+  /* Noise Overlay */
+  .noise-overlay {
+    @apply fixed inset-0 pointer-events-none z-50 opacity-[0.02];
+    background-image: url('/noise.svg');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+  
+  /* Section Divider */
+  .section-divider {
+    @apply w-24 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent mx-auto;
+  }
+  
+  /* Gold Text Gradient */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light bg-clip-text text-transparent;
+  }
+}
+
+/* Animation Utilities */
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .perspective-\[2000px\] {
+    perspective: 2000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Page Transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}

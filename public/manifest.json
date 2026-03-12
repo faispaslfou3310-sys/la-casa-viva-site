@@ -1,0 +1,16 @@
+{
+  "name": "LA CASA VIVA",
+  "short_name": "Casa Viva",
+  "description": "Premium nightlife experiences in Casablanca",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
