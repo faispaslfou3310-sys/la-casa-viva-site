@@ -7,10 +7,4 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-# Redirects for SPA
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
+  NEXT_PUBLIC_SITE_URL = "https://lacasaviva.ma"
